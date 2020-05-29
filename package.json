@@ -1,6 +1,6 @@
 {
-  "name": "test",
-  "version": "1.0.1",
+  "name": "mjml-image-hover",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "build": "gulp build",
     "lint": "eslint components"
   },
-  "author": "",
+  "author": "Steven Verbeek <sverbeek@modernmedia.ca>",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.13.2",
