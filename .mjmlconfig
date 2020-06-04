@@ -1,6 +1,5 @@
 {
   "packages": [
-    "./lib/MjImageHover.js",
-    "./lib/MjImageHoverHead.js"
+    "./lib/MjImageHover.js"
   ]
 }

@@ -1,8 +1,9 @@
 import { min } from 'lodash'
-
 import { BodyComponent } from 'mjml-core'
-
 import widthParser from 'mjml-core/lib/helpers/widthParser'
+import {
+  msoConditionalTag,
+} from 'mjml-core/lib/helpers/conditionalTag'
 
 export default class MjImageHover extends BodyComponent {
   static tagOmission = true
@@ -81,6 +82,7 @@ export default class MjImageHover extends BodyComponent {
         'border-bottom': this.getAttribute('bottom'),
         'border-radius': this.getAttribute('border-radius'),
         display: 'none',
+        'mso-hide': 'all',
         outline: 'none',
         'text-decoration': 'none',
         height: this.getAttribute('height'),
@@ -134,9 +136,9 @@ export default class MjImageHover extends BodyComponent {
     `
 
     const imgHover = `
-      <img
+      ${msoConditionalTag(`<img
         ${this.htmlAttributes({
-          alt: this.getAttribute('alt'),
+          alt: '',
           height: height && (height === 'auto' ? height : parseInt(height, 10)),
           src: this.getAttribute('src-hover'),
           srcset: this.getAttribute('srcset'),
@@ -147,7 +149,7 @@ export default class MjImageHover extends BodyComponent {
           usemap: this.getAttribute('usemap'),
           class: 'hovered',
         })}
-      />
+      />`, true)}
     `
 
     if (this.getAttribute('href')) {
@@ -167,6 +169,23 @@ export default class MjImageHover extends BodyComponent {
 
     return img + imgHover
   }
+
+  headStyle = () => `
+      .${this.getAttribute('hover-name')}:hover .hover {display: none !important;}
+      .${this.getAttribute('hover-name')}:hover .hovered {display: block !important;}
+      * [title="${this.getAttribute('hover-name')}img"]:hover .hover {display: none !important;}
+      * [title="${this.getAttribute('hover-name')}img"]:hover .hovered {display: block !important;}
+      body[data-outlook-cycle] .${this.getAttribute('hover-name')} .hover {display: block !important;}
+      body[data-outlook-cycle] .${this.getAttribute('hover-name')} .hovered {display: none !important;}
+    </style>
+    <!--[if mso]>
+    <style type="text/css">
+    .${this.getAttribute('hover-name')} .hover{display:none !important}
+    .${this.getAttribute('hover-name')} .hovered{display:block !important}
+    </style>
+    <![endif]-->
+    <style type="text/css">
+  `
 
   render() {
     return `
