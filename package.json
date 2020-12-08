@@ -1,6 +1,6 @@
 {
   "name": "mjml-image-hover",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -28,6 +28,6 @@
   },
   "dependencies": {
     "lodash": "^4.15.0",
-    "mjml": "^4.0.0"
+    "mjml": "^4.7.1"
   }
 }

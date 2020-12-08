@@ -4,6 +4,15 @@ import widthParser from 'mjml-core/lib/helpers/widthParser'
 import {
   msoConditionalTag,
 } from 'mjml-core/lib/helpers/conditionalTag'
+import { registerDependencies } from 'mjml-validator'
+
+registerDependencies({
+  'mj-image-hover': [],
+  'mj-body': ['mj-image-hover'],
+  'mj-wrapper': ['mj-image-hover'],
+  'mj-column': ['mj-image-hover'],
+  'mj-group': ['mj-image-hover']
+})
 
 export default class MjImageHover extends BodyComponent {
   static tagOmission = true
