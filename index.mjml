@@ -1,5 +1,6 @@
 <mjml>
   <mj-body>
     <mj-image-hover width="300px" hover-name="cheese" src="https://i.picsum.photos/id/237/300/300.jpg" src-hover="https://i.picsum.photos/id/236/300/300.jpg" />
+    <mj-image-hover width="300px" hover-name="chees2e" src="https://i.picsum.photos/id/238/300/300.jpg" src-hover="https://i.picsum.photos/id/239/300/300.jpg" />
   </mj-body>
 </mjml>

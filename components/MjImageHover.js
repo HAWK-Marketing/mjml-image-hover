@@ -179,7 +179,7 @@ export default class MjImageHover extends BodyComponent {
     return img + imgHover
   }
 
-  headStyle = () => `
+  componentHeadStyle = () => `
       .${this.getAttribute('hover-name')}:hover .hover {display: none !important;}
       .${this.getAttribute('hover-name')}:hover .hovered {display: block !important;}
       * [title="${this.getAttribute('hover-name')}img"]:hover .hover {display: none !important;}
